@@ -5,7 +5,7 @@
 ### Mac OS X (via [Homebrew](http://brew.sh)'ed Python)
 
 1. `brew install python3`
-2. `pip3 install -e git+https://github.com/hongqn/exchangeutil#egg=exchangeutil`
+2. `pip3 install -e 'git+https://github.com/hongqn/exchangeutil#egg=exchangeutil'`
 3. `hash -r`
 4. `mkdir -p ~/.config/exchangeutil/`
 5. `vi ~/.config/exchangeutil/config.yaml`  # see config example
@@ -20,6 +20,7 @@ pop3:
 
 keepdays: 50    # mails older than this will be deleted
 keepmine: true  # keep mails sent from me or not?
+```
 
 ## Utils
 
