@@ -12,6 +12,8 @@ MAX_DELETE = 1000
 def main():
     parser = ArgumentParser()
     parser.add_argument('--debug', action='store_true')
+    parser.add_argument('--delete', action='store_true',
+                        help="Delete old mails, no ask.")
     args = parser.parse_args()
 
     cfg = load_config()
@@ -40,9 +42,10 @@ def main():
             if n_delete == MAX_DELETE:
                 break
 
-    answer = input("Okay to delete {} mails? (y/N) ".format(n_delete))
-    if answer != 'y':
-        pop.rset()
+    if not args.delete:
+        answer = input("Okay to delete {} mails? (y/N) ".format(n_delete))
+        if answer != 'y':
+            pop.rset()
 
     pop.quit()
 
